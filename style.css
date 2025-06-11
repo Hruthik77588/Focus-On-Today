@@ -12,6 +12,52 @@ main {
     padding: 0px 16px 32px;
 
 }
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.dialog-box {
+    background-color:  #48A300;
+    border-color: #48A300;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 30rem;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 0 1.5rem;
+}
+
+.dialog-box h1 {
+    color:  #F8F3D9;
+    text-align: center;
+}
+
+.dialog-box .dialog-box-button {
+    background-color: #214404;
+    color: white;
+    border: none;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    padding: 9.5px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dialog-box .dialog-box-button:hover {
+    cursor: pointer;
+}
 
 .heading {
     font-size: 64px;
@@ -72,11 +118,12 @@ main {
     height: 30px;
     background-color: rgba(79, 172, 3, 0.235);
     border-radius: 15px;
+    margin-bottom: 50px;
 }
 
 .progress-value {
     height: 100%;
-    width: 30%;
+    width: 0;
     background-color: rgba(72, 163, 0, 1);
     border-radius: 15px;
     font-weight: 500;
@@ -84,15 +131,23 @@ main {
     color: rgba(238, 255, 224, 1);
     display: flex;
     align-items: center;
+  overflow: hidden;
+  transition: width 1s ease-in-out;
+}
+
+.progress-value span{
     padding-left: 20px;
+   min-width: max-content;
 }
 
 .error-label {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
     color: #FF5151;
-    margin-block: 20px;
-
+    margin-top: 4px;
+    display: none;
+}
+.show-error .error-label{
+    display: block;
 }
 
 .goal-container {
@@ -164,6 +219,7 @@ main {
     color: #48a300;
     text-decoration: line-through;
 }
+
 @media (max-width:768px) {
     .heading {
         font-size: 32px;
